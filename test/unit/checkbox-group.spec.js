@@ -76,6 +76,7 @@ describe('checkbox group', () => {
     checkbox.setAttribute('value', '4');
     checkbox.setAttribute('checked', '');
     checkboxGroup.appendChild(checkbox);
+    await checkbox.updateComplete;
     await checkboxGroup.updateComplete;
     expect(checkboxGroup.value).to.include('4');
   });
