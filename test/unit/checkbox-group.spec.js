@@ -121,13 +121,12 @@ describe('checkbox group', () => {
 
   it('should set proper value when a checkbox is checked', async () => {
     checkboxList[0].checked = true;
+    await checkboxList[0].updateComplete;
     await checkboxGroup.updateComplete;
     expect(checkboxGroup.value).to.deep.equal(['1']);
 
-    // FIXME: figure out why this is needed when transpiled
-    await Promise.resolve();
-
     checkboxList[1].checked = true;
+    await checkboxList[1].updateComplete;
     await checkboxGroup.updateComplete;
     expect(checkboxGroup.value).to.deep.equal(['1', '2']);
   });
@@ -135,12 +134,12 @@ describe('checkbox group', () => {
   it('should set proper value when a checkbox is unchecked', async () => {
     checkboxList[0].checked = true;
     checkboxList[1].checked = true;
+    await Promise.all([checkboxList[0].updateComplete, checkboxList[1].updateComplete]);
     await checkboxGroup.updateComplete;
     expect(checkboxGroup.value).to.deep.equal(['1', '2']);
 
-    await Promise.resolve();
-
     checkboxList[1].checked = false;
+    await checkboxList[1].updateComplete;
     await checkboxGroup.updateComplete;
     expect(checkboxGroup.value).to.deep.equal(['1']);
   });
@@ -172,6 +171,7 @@ describe('checkbox group', () => {
     const spy = sinon.spy();
     checkboxGroup.addEventListener('value-changed', spy);
     checkboxList[0].checked = true;
+    await checkboxList[0].updateComplete;
     await checkboxGroup.updateComplete;
     expect(spy).to.be.calledOnce;
   });
@@ -274,6 +274,7 @@ describe('checkbox group validation', () => {
     checkboxGroup.required = true;
     checkboxList[0].checked = true;
     checkboxList[0].checked = false;
+    await checkboxList[0].updateComplete;
     await checkboxGroup.updateComplete;
     expect(checkboxGroup.hasAttribute('invalid')).to.be.true;
   });
@@ -284,6 +285,7 @@ describe('checkbox group validation', () => {
     checkboxGroup.required = true;
     checkboxList[0].checked = true;
     checkboxList[0].checked = false;
+    await checkboxList[0].updateComplete;
     await checkboxGroup.updateComplete;
     expect(spy).to.be.calledOnce;
   });
@@ -291,17 +293,16 @@ describe('checkbox group validation', () => {
   it('should remove invalid attribute if value is not empty', async () => {
     checkboxGroup.required = true;
     checkboxList[0].checked = true;
+    await checkboxList[0].updateComplete;
     await checkboxGroup.updateComplete;
 
-    await Promise.resolve();
-
     checkboxList[0].checked = false;
+    await checkboxList[0].updateComplete;
     await checkboxGroup.updateComplete;
     expect(checkboxGroup.hasAttribute('invalid')).to.be.true;
 
-    await Promise.resolve();
-
     checkboxList[0].checked = true;
+    await checkboxList[0].updateComplete;
     await checkboxGroup.updateComplete;
     expect(checkboxGroup.hasAttribute('invalid')).to.be.false;
   });
