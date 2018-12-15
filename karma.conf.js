@@ -17,7 +17,7 @@ module.exports = function(config) {
         flags: ['-headless']
       }
     },
-    frameworks: ['mocha', 'sinon-chai'],
+    frameworks: ['mocha', 'sinon-chai', 'webpack'],
     files: [
       {
         pattern: 'node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js',
@@ -27,10 +27,10 @@ module.exports = function(config) {
         pattern: 'node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js',
         watched: false
       },
-      'test/unit/index.js'
+      'packages/**/test/*.spec.js'
     ],
     preprocessors: {
-      'test/unit/index.js': ['webpack', 'sourcemap']
+      'packages/**/*.spec.js': ['webpack', 'sourcemap']
     },
     reporters: ['dots', 'coverage-istanbul'],
     port: 9876,
