@@ -5,7 +5,7 @@
   "license": "Apache-2.0",
   "main": "lit-switch-lumo.js",
   "dependencies": {
-    "@lit/switch-base": "^0.1.0",
+    "@lit/switch-base": "0.1.0",
     "@vaadin/vaadin-lumo-styles": "^1.2.0",
     "lit-css": "^0.1.3"
   },
