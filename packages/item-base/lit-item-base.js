@@ -3,7 +3,7 @@ import { ItemMixin } from '@lit/item-mixin';
 import styles from './lit-item-styles.js';
 
 export class ItemBase extends ItemMixin(LitElement) {
-  static get style() {
+  static get styles() {
     return [styles];
   }
 

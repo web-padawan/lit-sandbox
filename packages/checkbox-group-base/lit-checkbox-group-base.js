@@ -8,7 +8,7 @@ function filterCheckboxes(nodes) {
 }
 
 export class CheckboxGroupBase extends LitElement {
-  static get style() {
+  static get styles() {
     return [styles];
   }
 
