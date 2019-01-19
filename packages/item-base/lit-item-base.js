@@ -4,7 +4,7 @@ import styles from './lit-item-styles.js';
 
 export class ItemBase extends ItemMixin(LitElement) {
   static get styles() {
-    return [styles];
+    return styles;
   }
 
   render() {
