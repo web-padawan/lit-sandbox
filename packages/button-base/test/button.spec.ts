@@ -10,6 +10,11 @@ import {
   spaceDown,
   spaceUp
 } from '@lit/test-helpers';
+
+import {
+  expect
+} from '@open-wc/testing';
+
 import { ButtonBase } from '../lit-button-base.js';
 
 describe('button', () => {
@@ -32,7 +37,7 @@ describe('button', () => {
   });
 
   it('should define button label using light DOM', () => {
-    const children = FlattenedNodesObserver.getFlattenedNodes(label);
+    const children: Element[] = FlattenedNodesObserver.getFlattenedNodes(label) as Element[];
     expect(children[0].textContent).to.be.equal('Lit ');
     expect(children[1].outerHTML).to.be.equal('<i>Button</i>');
   });
@@ -110,7 +115,7 @@ describe('button', () => {
   it('should not have active attribute when disconnected from the DOM', () => {
     spaceDown(button);
     button.parentNode.removeChild(button);
-    window.ShadyDOM && window.ShadyDOM.flush();
+    window['ShadyDOM'] && window['ShadyDOM'].flush();
     expect(button.hasAttribute('active')).to.be.false;
   });
 

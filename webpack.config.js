@@ -9,6 +9,9 @@ module.exports = {
   entry: './demo/all.ts',
   mode: 'development',
   devtool: 'cheap-module-source-map',
+  resolve: {
+    extensions: ['.js', '.ts']
+  },
   output: {
     path: OUTPUT_PATH
   },
