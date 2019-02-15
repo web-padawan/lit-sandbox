@@ -6,7 +6,7 @@ const { rules } = require('./utils/webpack.common.js');
 const OUTPUT_PATH = resolve('build');
 
 module.exports = {
-  entry: './demo/all.js',
+  entry: './demo/all.ts',
   mode: 'development',
   devtool: 'cheap-module-source-map',
   output: {

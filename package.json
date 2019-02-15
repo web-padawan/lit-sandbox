@@ -57,6 +57,8 @@
     "stylelint-config-prettier": "^4.0.0",
     "stylelint-config-standard": "^18.2.0",
     "stylelint-processor-styled-components": "^1.5.2",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.3.3",
     "vrtest": "^0.2.0",
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3",

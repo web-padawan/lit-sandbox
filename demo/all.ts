@@ -1,8 +1,8 @@
 import '../packages/accordion-lumo/lit-accordion-lumo.js';
 import '../packages/accordion-material/lit-accordion-material.js';
 
-import '../packages/button-lumo/lit-button-lumo.js';
-import '../packages/button-material/lit-button-material.js';
+import '../packages/button-lumo/lit-button-lumo';
+import '../packages/button-material/lit-button-material';
 
 import '../packages/checkbox-lumo/lit-checkbox-lumo.js';
 import '../packages/checkbox-material/lit-checkbox-material.js';
